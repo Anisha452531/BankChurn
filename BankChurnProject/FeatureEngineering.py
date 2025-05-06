@@ -6,7 +6,7 @@ from EDA import univariate_analysis, bivariate_analysis, correlation_heatmap
 # -----------------------
 # Feature Engineering Function
 # -----------------------
-def feature_engineering_pipeline(file_path='C:/Users/anish/BankChurn/BankChurnProject/Churn_Modelling.csv'):
+def feature_engineering_pipeline(file_path='BankChurnProject\Churn_Modelling.csv'):
     
     df_cleaned, _, _, _, _ = preprocessing_process(file_path, verbose=False)
     
@@ -50,4 +50,4 @@ def feature_engineering_pipeline(file_path='C:/Users/anish/BankChurn/BankChurnPr
 
 
 if __name__ == "__main__":
-    final_df = feature_engineering_pipeline('C:/Users/anish/BankChurn/BankChurnProject/Churn_Modelling.csv')
+    final_df = feature_engineering_pipeline('BankChurnProject\Churn_Modelling.csv')
