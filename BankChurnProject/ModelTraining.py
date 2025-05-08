@@ -4,7 +4,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from xgboost import XGBClassifier
-from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
+from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, confusion_matrix, ConfusionMatrixDisplay
+import matplotlib.pyplot as plt
 
 from preprocessing import preprocessing_process
 from EDA import univariate_analysis, bivariate_analysis, correlation_heatmap
@@ -41,9 +42,11 @@ def run_model_training_pipeline(file_path):
 
     # Step 4: Train and Evaluate
     results = []
+    predictions = {}
     for name, model in models.items():
         model.fit(X_train, y_train)
         y_pred = model.predict(X_test)
+        predictions[name] = y_pred
         results.append([
             name,
             accuracy_score(y_test, y_pred),
@@ -59,8 +62,19 @@ def run_model_training_pipeline(file_path):
     best_model_name = results_df.sort_values(by='Accuracy', ascending=False).iloc[0]['Model']
     print(f"\nSelected Final Model: {best_model_name}")
 
+    # Step 6: Show Confusion Matrix for Final Model
+    best_model = models[best_model_name]
+    y_pred_best = predictions[best_model_name]
+
+    cm = confusion_matrix(y_test, y_pred_best)
+    disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=["Not Churned", "Churned"])
+    disp.plot(cmap=plt.cm.Blues)
+    plt.title(f"Confusion Matrix - {best_model_name}")
+    plt.show()
+
 
 # ----------- Run Only If Called Directly -----------
-if __name__ == "__main__":
-    dataset_path = r"C:\Users\madha\BankChurn\BankChurnProject\Churn_Modelling.csv"
+if __name__ == "_"
+"_main__":
+    dataset_path = r"C:\Users\anish\BankChurn\BankChurnProject\Churn_Modelling.csv"
     run_model_training_pipeline(dataset_path)
