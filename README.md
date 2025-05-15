@@ -55,9 +55,78 @@ This project uses:
 
 ---
 
-## ⚙ Installation Guide
+## Installation Guide
 
 ### Step 1: Clone the Repository
 ```bash
 git clone https://github.com/Anisha452531/BankChurn.git
 cd BankChurn
+
+
+ ---
+## Usage Guide
+
+To predict churn for an existing customer, enter the Customer ID in the search box.
+
+To predict churn for a new customer, fill in the customer details form.
+
+The system will display whether the customer is likely to churn along with detailed prediction insights.
+
+Visualizations of data patterns and explanations are also available for better understanding.
+
+---
+
+## Project Architecture
+
+- Data Layer: Contains the dataset churn_modeling.csv
+- Preprocessing: Python scripts for cleaning and preparing data
+- Feature Engineering: Creating new features and handling imbalanced data with SMOTE
+- Modeling: Training and evaluating Random Forest, Decision Tree, XGBoost models
+- Explainability: SHAP module for interpreting model predictions
+- Backend: Flask web server managing API and model predictions
+- Frontend: HTML/CSS/JavaScript interface for user interactions
+
+---
+
+## Technologies Used
+
+- Programming Languages: Python, HTML, CSS, JavaScript
+- Machine Learning: scikit-learn, XGBoost, imbalanced-learn (SMOTE), SHAP
+- Backend Framework: Flask
+- Visualization: Matplotlib, Seaborn
+- Version Control: Git and GitHub
+
+---
+
+## Dependencies
+
+- pandas
+- numpy
+- scikit-learn
+- xgboost
+- imbalanced-learn
+- shap
+- flask
+- matplotlib
+- seaborn
+- pickle-mixin (for serialization)
+
+(Ensure to install these via `pip install -r requirements.txt`)
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
+
+## Authors
+
+- Jeevanraj L — [GitHub](https://github.com/Jeevan-cyber-ai) — jeevaneniyavan@gmail.com  
+- Anisha A K — [GitHub](https://github.com/Anisha452531) — anishaak06@gmail.com  
+- Madhanalekha — [GitHub](https://github.com/Madhanalekha) — madhanalekha203@gmail.com  
+- Thangappan S — [GitHub](https://github.com/thangappans) — sthangappan77@gmail.com  
+- Gowsalya — [GitHub](https://github.com/sathya292006) — sathyamozhi292006@gmail.com  
+
+
