@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Churn Prediction</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #a7ede0, #74ebd5);
+            padding: 40px;
+            margin: 0;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #001f3f;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .form-section {
+            background: linear-gradient(to right, #F1FADA, #9AD0C2);
+            padding: 25px;
+            margin: 30px auto;
+            width: 60%;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .form-section:hover {
+            transform: scale(1.01);
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: 600;
+y            color: #333;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .submit-btn {
+            background-color: #2D9596;
+            color: white;
+            padding: 12px;
+            margin-top: 20px;
+            border: none;
+            width: 100%;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #019875;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Bank Customer Churn Prediction</h1>
+
+    <div id="index" class="form-section">
+        <h2>Predict Using Existing Customer Index</h2>
+        <form action="/predict" method="post">
+            <label for="customer_index">Enter Customer Index:</label>
+            <input type="number" name="customer_index" required placeholder="e.g., 102">
+            <button type="submit" class="submit-btn">Predict by Index</button>
+        </form>
+    </div>
+
+    <div id="newCustomer" class="form-section">
+        <h2>Predict for New Customer</h2>
+        <form action="/predict" method="post">
+            <label for="CreditScore">Credit Score:</label>
+            <input type="number" name="CreditScore" required placeholder="e.g., 650">
+
+            <label for="Geography">Geography (France / Germany):</label>
+            <input type="text" name="Geography" required placeholder="e.g., France">
+
+            <label for="Gender">Gender (Female / Male):</label>
+            <input type="text" name="Gender" required placeholder="e.g., Male">
+
+            <label for="Age">Age:</label>
+            <input type="number" name="Age" required placeholder="e.g., 35">
+
+            <label for="Tenure">Tenure (Years with Bank):</label>
+            <input type="number" name="Tenure" required placeholder="e.g., 5">
+
+            <label for="Balance">balance:</label>
+            <input type="number" name="Balance" required placeholder="e.g., 40800">
+
+            <label for="NumOfProducts">Number of Products:</label>
+            <input type="number" name="NumOfProducts" required placeholder="e.g., 2">
+
+            <label for="HasCrCard">Has Credit Card (1=Yes, 0=No):</label>
+            <input type="number" name="HasCrCard" min="0" max="1" required placeholder="e.g., 1 for Yes">
+
+            <label for="EstimatedSalary">Estimated Salary:</label>
+            <input type="number" name="EstimatedSalary" required placeholder="e.g., 200000">
+
+            <button type="submit" class="submit-btn">Predict for New Customer</button>
+        </form>
+    </div>
+
+</body>
+</html>

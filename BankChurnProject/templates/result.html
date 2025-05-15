@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #d7e1ec, #f5f7fa);
+            padding: 50px;
+            margin: 0;
+            text-align: center;
+        }
+
+        
+        .result-box {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 700px;
+            margin: auto;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .feature-section {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .feature-section h3 {
+            font-size: 22px;
+            color: #004d40;
+            margin-bottom: 15px;
+        }
+
+        ul.feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul.feature-list li {
+            font-size: 17px;
+            padding: 8px 12px;
+            margin-bottom: 10px;
+            border-left: 5px solid #42a5f5;
+            background-color: #f1f8ff;
+            border-radius: 5px;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.4s ease;
+        }
+
+        ul.feature-list li.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            background-color: #1976d2;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: #0d47a1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    
+    </style>
+</head>
+<body>
+
+    <div class="result-box">
+        <h2>Prediction Result</h2>
+        <p><strong>Churn Prediction:</strong> {{ prediction }}</p>
+        <p><strong>Churn Probability:</strong> {{ probability }}%</p>
+
+        <div class="feature-section">
+            <h3>Top Influencing Features</h3>
+            <ul class="feature-list" id="featureList">
+                {% for item in shap_values %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <a href="/" class="back-btn">Try Another Prediction</a>
+    </div>
+
+    <script>
+        // Animate features one by one on page load
+        window.onload = function () {
+            const items = document.querySelectorAll('#featureList li');
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('visible');
+                }, index * 200);
+            });
+        };
+    </script>
+
+</body>
+</html>
