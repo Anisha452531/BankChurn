@@ -61,8 +61,7 @@ This project uses:
 ```bash
 git clone https://github.com/Anisha452531/BankChurn.git
 cd BankChurn
-
-
+```
  ---
 ## Usage Guide
 
