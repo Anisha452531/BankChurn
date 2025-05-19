@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from SHAP import shap_explanation
+from ShapModule import shap_explanation
 from NewChurnPrediction import predict_churn_for_new_customer
 
 app = Flask(__name__)
