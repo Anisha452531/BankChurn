@@ -8,11 +8,3 @@ seaborn
 imbalanced-learn
 shap
 xgboost
-BankChurnProject/preprocessing.py
-BankChurnProject/EDA.py
-BankChurnProject/FeatureEngineering.py
-BankChurnProject/SMOT.py
-BankChurnProject/ModelTraining.py
-BankChurnProject/ShapModule.py
-BankChurnProject/NewChurnPrediction.py
-BankChurnProject/Pickel.py
