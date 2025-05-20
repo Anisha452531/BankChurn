@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from ShapModule import shap_explanation
 from NewChurnPrediction import predict_churn_for_new_customer
 
-app = Flask(__name__)
+app = Flask(_name_)
 
 @app.route("/")
 def home():
@@ -40,5 +40,5 @@ def predict():
         # Error handling: Show error on the same page
         return f"<h3 style='color:red;'>Error occur: {str(e)}</h3><a href='/'>Go back</a>"
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     app.run(debug=True)
